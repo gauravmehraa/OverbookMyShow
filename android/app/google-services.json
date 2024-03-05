@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "93772200985",
+    "project_id": "overbook-my-show",
+    "storage_bucket": "overbook-my-show.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93772200985:android:f9a92b934b413c69cffe88",
+        "android_client_info": {
+          "package_name": "com.example.overbook_my_show"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8FbOCSvNmXo9mzkb1pmbgWVJ-HR4tQoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

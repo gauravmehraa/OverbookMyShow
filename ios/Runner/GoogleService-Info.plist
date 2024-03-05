@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDZWaMTF0Ubaz7C1zwhsaYz2mmfpz1d8xs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>93772200985</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.overbookMyShow</string>
+	<key>PROJECT_ID</key>
+	<string>overbook-my-show</string>
+	<key>STORAGE_BUCKET</key>
+	<string>overbook-my-show.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:93772200985:ios:6fbe02b988d90647cffe88</string>
+</dict>
+</plist>
