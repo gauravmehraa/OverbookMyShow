@@ -14,6 +14,7 @@ class LoginPage extends StatelessWidget{
     final authService = AuthService();
     try{
       await authService.signInWithEmailAndPassword(emailCon.text, passCon.text);
+      Navigator.pop(context);
     }
     catch(e){
       showDialog(
