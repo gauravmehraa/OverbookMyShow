@@ -17,12 +17,7 @@ class LoginPage extends StatelessWidget{
       Navigator.pop(context);
     }
     catch(e){
-      showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text(e.toString()),
-          )
-      );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Invalid credentials")));
     }
   }
 

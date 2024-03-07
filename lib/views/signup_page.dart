@@ -2,12 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:overbook_my_show/views/login_page.dart';
 
 import '../components/login_field.dart';
+import '../services/auth_service.dart';
 
 class SignupPage extends StatelessWidget{
   SignupPage({super.key});
   final TextEditingController emailCon = TextEditingController();
   final TextEditingController passCon = TextEditingController();
   final TextEditingController confirmPassCon = TextEditingController();
+
+
+  void signUp(BuildContext context) async {
+    final authService = AuthService();
+
+    //Check null strings
+    if(emailCon.text.isEmpty || passCon.text.isEmpty || confirmPassCon.text.isEmpty){
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("All fields are mandatory")));
+      return;
+    }
+
+    //Check if passwords are same
+    if(passCon.text != confirmPassCon.text){
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Passwords should be same")));
+      return;
+    }
+
+    //Check length of password
+    if(passCon.text.length < 6) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Weak password")));
+      return;
+    }
+
+    try{
+      await authService.signUpWithEmailAndPassword(emailCon.text, passCon.text);
+      Navigator.pop(context);
+    }
+    catch(e){
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Invalid credentials")));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +118,7 @@ class SignupPage extends StatelessWidget{
                     color: Color(0xffF84464),
                     elevation: 1,
                     onPressed: () {
-
+                      signUp(context);
                     },
                     child: Text("Sign Up",
                       style: TextStyle(
