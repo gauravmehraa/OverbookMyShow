@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:overbook_my_show/components/obms_app_bar.dart';
+import 'package:overbook_my_show/views/home_page.dart';
+import '../components/detail_box.dart';
 import '../services/auth/auth_service.dart';
 import '../services/user/user_service.dart';
 import 'add_event_page.dart';
@@ -34,7 +36,7 @@ class _ProfilePageState extends State<ProfilePage> {
         titleText: "View Profile",
         leadingIcon: Icon(Icons.arrow_back),
         leadingTooltip: "Go back",
-        onPress: (){ Navigator.pop(context); },
+        onPress: (){ Navigator.pop(context); Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => HomePage())); },
       ),
       body: StreamBuilder<DocumentSnapshot>(
         stream: FirebaseFirestore.instance.collection('users').doc(user!.uid).snapshots(),
@@ -47,6 +49,7 @@ class _ProfilePageState extends State<ProfilePage> {
             return SafeArea(
               child: Container(
                   width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.6,
                   color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 30, right: 30),
@@ -54,37 +57,28 @@ class _ProfilePageState extends State<ProfilePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text("Name"),
-                            SizedBox(width: 30),
-                            Text(userData['name']),
-                          ],
+                        DetailBox(
+                          title: "Name",
+                          data: userData['name'],
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text("Email"),
-                            SizedBox(width: 30),
-                            Text(userData['email']),
-                          ],
+                        DetailBox(
+                          title: "Email",
+                          data: userData['email'],
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text("Role"),
-                            SizedBox(width: 30),
-                            Text(roleText),
-                          ],
+                        DetailBox(
+                          title: "Role ",
+                          data: roleText,
                         ),
 
                         if(userData['isAdmin'])
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
                                 MaterialButton(
-                                  minWidth: MediaQuery.of(context).size.width * 0.8,
+                                  minWidth: MediaQuery
+                                      .of(context)
+                                      .size
+                                      .width * 0.8,
                                   height: 60,
                                   color: Color(0xffF84464),
                                   elevation: 1,
@@ -92,7 +86,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                     Navigator.pop(context);
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => AddEventPage()),
+                                      MaterialPageRoute(
+                                          builder: (context) => AddEventPage()),
                                     );
                                   },
                                   child: Text("Add Event",
@@ -103,8 +98,40 @@ class _ProfilePageState extends State<ProfilePage> {
                                     ),
                                   ),
                                 ),
-                            ]
+                              ]
                           ),
+
+                        if(userData['isAdmin'])
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                MaterialButton(
+                                  minWidth: MediaQuery
+                                      .of(context)
+                                      .size
+                                      .width * 0.8,
+                                  height: 60,
+                                  color: Color(0xffF84464),
+                                  elevation: 1,
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => AddEventPage()),
+                                    );
+                                  },
+                                  child: Text("Scan Ticket",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ]
+                          ),
+
                       ],
                     ),
                   )

@@ -46,11 +46,12 @@ class HomePage extends StatelessWidget {
           child: Container(
               width: MediaQuery.of(context).size.width * 1,
               child: Padding(
-                padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+
                     Expanded(
                       child: FutureBuilder(
                         future: getEventIds(),

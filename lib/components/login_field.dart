@@ -5,11 +5,9 @@ class LoginField extends StatelessWidget{
   final String hintText;
   final bool obscureText;
   final Icon icon;
-  final bool readOnly;
 
   const LoginField({
     super.key,
-    this.readOnly = false,
     required this.controller,
     required this.hintText,
     required this.obscureText,
@@ -20,7 +18,6 @@ class LoginField extends StatelessWidget{
   Widget build(BuildContext context){
     return TextFormField(
       controller: controller,
-      readOnly: readOnly,
       obscureText: obscureText,
       decoration: InputDecoration(
         prefixIcon: icon,

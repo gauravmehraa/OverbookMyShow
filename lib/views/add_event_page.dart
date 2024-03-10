@@ -40,13 +40,13 @@ class AddEventPage extends StatelessWidget {
   }
 
   void addEvent(context) async {
-    print('entering');
     try {
       await _firestore.collection("events").doc(idCon.text).set(
           {
             'name': nameCon.text,
             'description': descCon.text,
             'venue': venueCon.text,
+            'time': timeCon.text,
             'ticketinfo': {
               'vip': {
                 'price': int.parse(vipPriceCon.text),
@@ -61,12 +61,13 @@ class AddEventPage extends StatelessWidget {
                 'quantity': int.parse(goldQtyCon.text)
               },
               'silver': {
-                'silver': int.parse(silverPriceCon.text),
+                'price': int.parse(silverPriceCon.text),
                 'quantity': int.parse(silverQtyCon.text)
               },
             }
           }
       );
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Event successfully added")));
     }
     catch(e){
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("${e.toString()}")));
@@ -81,23 +82,14 @@ class AddEventPage extends StatelessWidget {
         titleText: "Admin Panel",
         leadingIcon: Icon(Icons.home_filled),
         leadingTooltip: "Home",
-        onPress: (){
-          Navigator.pop(context);
-          MaterialPageRoute(builder: (context) => HomePage());
-          },
+        onPress: (){ Navigator.pop(context); Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => HomePage())); },
       ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
             color: Color(0xffc4252a),
-            width: MediaQuery
-                .of(context)
-                .size
-                .width,
-            height: MediaQuery
-                .of(context)
-                .size
-                .height*2,
+            width: MediaQuery.of(context).size.width*1,
+            height: MediaQuery.of(context).size.height*1.6,
             child: Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(left: 30, right: 30),
@@ -163,15 +155,11 @@ class AddEventPage extends StatelessWidget {
                     ),
 
 
-                    GestureDetector(
-                      onTap: () {selectTimestamp(context);},
-                      child: LoginField(
-                        readOnly: true,
-                        icon: const Icon(Icons.watch_later_outlined),
-                        controller: timeCon,
-                        hintText: "Date and Time",
-                        obscureText: false,
-                      ),
+                    LoginField(
+                      icon: const Icon(Icons.watch_later_outlined),
+                      controller: timeCon,
+                      hintText: "Date and Time",
+                      obscureText: false,
                     ),
 
                     SizedBox(
@@ -217,7 +205,7 @@ class AddEventPage extends StatelessWidget {
                               icon: const Icon(Icons.confirmation_number_outlined)
                           ),
                         ),
-                        SizedBox(width: 20),
+                        SizedBox(width: 10),
                         Container(
                           width: MediaQuery.of(context).size.width * 0.4,
                           child: LoginField(
@@ -262,7 +250,7 @@ class AddEventPage extends StatelessWidget {
                               icon: const Icon(Icons.confirmation_number_outlined)
                           ),
                         ),
-                        SizedBox(width: 20),
+                        SizedBox(width: 10),
                         Container(
                           width: MediaQuery.of(context).size.width * 0.4,
                           child: LoginField(
@@ -307,7 +295,7 @@ class AddEventPage extends StatelessWidget {
                               icon: const Icon(Icons.confirmation_number_outlined)
                           ),
                         ),
-                        SizedBox(width: 20),
+                        SizedBox(width: 10),
                         Container(
                           width: MediaQuery.of(context).size.width * 0.4,
                           child: LoginField(
@@ -352,7 +340,7 @@ class AddEventPage extends StatelessWidget {
                               icon: const Icon(Icons.confirmation_number_outlined)
                           ),
                         ),
-                        SizedBox(width: 20),
+                        SizedBox(width: 10),
                         Container(
                           width: MediaQuery.of(context).size.width * 0.4,
                           child: LoginField(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../services/auth/auth_gate.dart';
 import '../services/auth/auth_service.dart';
 
 class ObmsAppBar extends StatelessWidget implements PreferredSizeWidget{
@@ -20,6 +21,7 @@ class ObmsAppBar extends StatelessWidget implements PreferredSizeWidget{
   void logout(){
     final authService = AuthService();
     authService.signOut();
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AuthGate()));
   }
 
 
