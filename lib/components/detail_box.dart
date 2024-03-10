@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 
-class LoginField extends StatelessWidget{
+class DetailBox extends StatelessWidget{
   final TextEditingController controller;
   final String hintText;
-  final bool obscureText;
   final Icon icon;
-  final bool readOnly;
 
-  const LoginField({
+  const DetailBox({
     super.key,
-    this.readOnly = false,
     required this.controller,
     required this.hintText,
-    required this.obscureText,
     required this.icon,
   });
 
@@ -20,8 +16,6 @@ class LoginField extends StatelessWidget{
   Widget build(BuildContext context){
     return TextFormField(
       controller: controller,
-      readOnly: readOnly,
-      obscureText: obscureText,
       decoration: InputDecoration(
         prefixIcon: icon,
         enabledBorder: OutlineInputBorder(

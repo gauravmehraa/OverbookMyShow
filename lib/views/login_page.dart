@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:overbook_my_show/views/signup_page.dart';
 import '../components/login_field.dart';
-import '../services/auth_gate.dart';
-import '../services/auth_service.dart';
+import '../services/auth/auth_gate.dart';
+import '../services/auth/auth_service.dart';
 
 class LoginPage extends StatelessWidget{
   LoginPage({super.key});
@@ -46,7 +46,7 @@ class LoginPage extends StatelessWidget{
                     height: 20,
                   ),
 
-                  Text("Enter your credentials",
+                  Text("Login to your Account",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.black,
@@ -71,7 +71,7 @@ class LoginPage extends StatelessWidget{
                   ),
 
                   LoginField(
-                    icon: const Icon(Icons.password),
+                    icon: const Icon(Icons.lock_outline_rounded),
                     controller: passCon,
                     hintText: "Password",
                     obscureText: true,
