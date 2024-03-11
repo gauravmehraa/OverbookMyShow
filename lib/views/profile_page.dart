@@ -1,10 +1,10 @@
-import 'dart:ffi';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:overbook_my_show/components/obms_app_bar.dart';
 import 'package:overbook_my_show/views/home_page.dart';
+import 'package:overbook_my_show/views/scanner_page.dart';
+import 'package:overbook_my_show/views/tickets_page.dart';
 import '../components/detail_box.dart';
 import '../services/auth/auth_service.dart';
 import '../services/user/user_service.dart';
@@ -70,6 +70,33 @@ class _ProfilePageState extends State<ProfilePage> {
                           data: roleText,
                         ),
 
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              MaterialButton(
+                                minWidth: MediaQuery.of(context).size.width * 0.8,
+                                height: 60,
+                                color: Color(0xffF84464),
+                                elevation: 1,
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => TicketsPage()),
+                                  );
+                                },
+                                child: Text("View Tickets",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ]
+                        ),
+
                         if(userData['isAdmin'])
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -118,7 +145,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => AddEventPage()),
+                                          builder: (context) => ScannerPage()),
                                     );
                                   },
                                   child: Text("Scan Ticket",

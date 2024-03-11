@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:overbook_my_show/components/obms_app_bar.dart';
 import 'package:overbook_my_show/views/profile_page.dart';
-
 import '../components/event_tile.dart';
 import '../services/auth/auth_service.dart';
 

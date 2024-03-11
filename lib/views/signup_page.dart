@@ -54,6 +54,7 @@ class SignupPage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       // resizeToAvoidBottomInset : false,
+      extendBody: true,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -67,16 +68,16 @@ class SignupPage extends StatelessWidget{
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-        
+
                     Padding(
                       padding: const EdgeInsets.only(left: 120, right: 120),
                       child: Image.asset('assets/bms_logo.png'),
                     ),
-        
+
                     SizedBox(
                       height: 20,
                     ),
-        
+
                     Text("Create Account",
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -85,12 +86,12 @@ class SignupPage extends StatelessWidget{
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-        
+
                     SizedBox(
                         height: 20
                     ),
-        
-        
+
+
                     LoginField(
                       icon: const Icon(Icons.person_outline_outlined),
                       controller: nameCon,
@@ -100,40 +101,40 @@ class SignupPage extends StatelessWidget{
                     SizedBox(
                       height: 20,
                     ),
-        
+
                     LoginField(
                       icon: const Icon(Icons.email_outlined),
                       controller: emailCon,
                       hintText: "Email",
                       obscureText: false,
                     ),
-        
+
                     SizedBox(
                       height: 30,
                     ),
-        
+
                     LoginField(
                       icon: const Icon(Icons.lock_outline_rounded),
                       controller: passCon,
                       hintText: "Password",
                       obscureText: true,
                     ),
-        
+
                     SizedBox(
                       height: 30,
                     ),
-        
+
                     LoginField(
                       icon: const Icon(Icons.lock_outline_rounded),
                       controller: confirmPassCon,
                       hintText: "Confirm Password",
                       obscureText: true,
                     ),
-        
+
                     SizedBox(
                       height: 30,
                     ),
-        
+
                     MaterialButton(
                       minWidth: MediaQuery.of(context).size.width,
                       height: 60,
@@ -178,9 +179,9 @@ class SignupPage extends StatelessWidget{
                         ],
                       ),
                     ),
-        
-        
-        
+
+
+
                   ],
                 ),
               ),
