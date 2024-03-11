@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../services/auth/auth_service.dart';
 import '../views/event_page.dart';
 
 class TicketTile extends StatelessWidget {
@@ -12,6 +14,8 @@ class TicketTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authService = AuthService();
+    final User? user = authService.getCurrentUser();
     CollectionReference tickets =
         FirebaseFirestore.instance.collection('tickets');
     CollectionReference events =
@@ -23,6 +27,7 @@ class TicketTile extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done) {
             Map<String, dynamic> data =
                 snapshot.data!.data() as Map<String, dynamic>;
+            if(data['user'].toString().substring(6) == authService.getCurrentUser()!.uid)
             return Padding(
               padding: const EdgeInsets.only(top: 10, bottom: 10),
               child: GestureDetector(
@@ -114,7 +119,7 @@ class TicketTile extends StatelessWidget {
               ),
             );
           }
-          return Text('Retrieving ticket data');
+          return SizedBox(height: 0);
         });
   }
 }
