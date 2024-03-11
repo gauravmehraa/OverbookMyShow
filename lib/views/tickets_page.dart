@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:overbook_my_show/components/obms_app_bar.dart';
 import '../components/ticket_tile.dart';
-import '../services/auth/auth_service.dart';
+import '../services/auth_service.dart';
 import 'home_page.dart';
 
 class TicketsPage extends StatelessWidget {

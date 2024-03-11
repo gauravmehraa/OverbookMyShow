@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'login_page.dart';
 
 class LandingPage extends StatelessWidget {
@@ -11,7 +10,6 @@ class LandingPage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           color: Colors.white,
-          // width: MediaQuery.of(context).size.width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -87,7 +85,7 @@ class LandingPage extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 15, right: 15),
-                        child: Text("With BookMyShow, discover the latest movies, biggest concerts, most awaited sporting events, plays, and various other LIVE event experiences. If you identify as an ‘entertainment enthusiast’, then BookMyShow is a must-have app on your phone. No matter what mood you’re in, there’s something for everyone.",
+                        child: Text("With OverbookMyShow, discover the latest movies, biggest concerts, most awaited sporting events, plays, and various other LIVE event experiences. If you identify as an ‘entertainment enthusiast’, then BookMyShow is a must-have app on your phone. No matter what mood you’re in, there’s something for everyone.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 16,

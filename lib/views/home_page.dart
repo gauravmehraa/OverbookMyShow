@@ -1,11 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:overbook_my_show/components/obms_app_bar.dart';
 import 'package:overbook_my_show/views/profile_page.dart';
 import '../components/event_tile.dart';
-import '../services/auth/auth_service.dart';
+import '../services/auth_service.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});

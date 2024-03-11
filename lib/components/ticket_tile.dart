@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../services/auth/auth_service.dart';
+import '../services/auth_service.dart';
 import '../views/event_page.dart';
 
 class TicketTile extends StatelessWidget {

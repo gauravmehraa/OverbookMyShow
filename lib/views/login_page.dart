@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:overbook_my_show/views/signup_page.dart';
 import '../components/login_field.dart';
-import '../services/auth/auth_gate.dart';
-import '../services/auth/auth_service.dart';
+import '../services/auth_service.dart';
 
 class LoginPage extends StatelessWidget{
   LoginPage({super.key});

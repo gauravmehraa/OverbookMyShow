@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_cupertino_datetime_picker/flutter_cupertino_datetime_picker.dart';
 import '../components/login_field.dart';
 import '../components/obms_app_bar.dart';
 import 'home_page.dart';
@@ -23,21 +22,6 @@ class AddEventPage extends StatelessWidget {
   final TextEditingController platinumQtyCon = TextEditingController();
   final TextEditingController vipPriceCon = TextEditingController();
   final TextEditingController vipQtyCon = TextEditingController();
-
-  void selectTimestamp(context){
-    DatePicker.showDatePicker(
-      context,
-      dateFormat: 'dd MMMM yyyy HH:mm',
-      initialDateTime: DateTime.now(),
-      minDateTime: DateTime(2000),
-      maxDateTime: DateTime(3000),
-      onMonthChangeStartWithFirstDate: true,
-      onConfirm: (dateTime, List<int> index) {
-        DateTime selectdate = dateTime;
-        print(selectdate);
-      },
-    );
-  }
 
   void addEvent(context) async {
     try {

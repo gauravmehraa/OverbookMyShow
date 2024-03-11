@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:overbook_my_show/views/login_page.dart';
-
 import '../components/login_field.dart';
-import '../services/auth/auth_service.dart';
+import '../services/auth_service.dart';
 
 class SignupPage extends StatelessWidget{
   SignupPage({super.key});
@@ -53,7 +52,6 @@ class SignupPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // resizeToAvoidBottomInset : false,
       extendBody: true,
       body: SingleChildScrollView(
         child: SafeArea(

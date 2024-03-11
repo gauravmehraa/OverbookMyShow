@@ -6,8 +6,7 @@ import 'package:overbook_my_show/views/home_page.dart';
 import 'package:overbook_my_show/views/scanner_page.dart';
 import 'package:overbook_my_show/views/tickets_page.dart';
 import '../components/detail_box.dart';
-import '../services/auth/auth_service.dart';
-import '../services/user/user_service.dart';
+import '../services/auth_service.dart';
 import 'add_event_page.dart';
 
 
@@ -21,7 +20,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   final authService = AuthService();
 
-  final userService = UserService();
 
   @override
   Widget build(BuildContext context) {
